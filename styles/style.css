@@ -7,3 +7,24 @@
 .coustom-font {
     font-family: "Ubuntu", sans-serif;
 }
+.my-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+}
+.card{
+    transition: all 1s;
+}
+.card:hover {
+    background-color: cadetblue;
+    transform: scale(0.7);
+}
+.btns {
+    margin: 10px 20px;
+    background-color: #0D6EFD;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 10px;
+}
