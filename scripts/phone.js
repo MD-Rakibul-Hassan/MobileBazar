@@ -1,15 +1,14 @@
-const URL = "https://openapi.programming-hero.com/api/phones?search=iphone";
-const cardContainer = document.getElementById("cardContainer");
 
+const cardContainer = document.getElementById("cardContainer");
+// Send request api for gatting phone imformations 
 async function getPhones (rul) {
     const response = await fetch (rul);
     const data = await response.json()
     const phonesArray = data["data"];
-    showPhones(phonesArray)
-    
+    showPhones(phonesArray) 
 }
-getPhones(URL)
 
+// Show phone information dynamically 
 function showPhones (phone) {
     phone.forEach(element => {
         console.log(element)
@@ -30,3 +29,13 @@ function showPhones (phone) {
          cardContainer.appendChild(phoneCard);
     });
 }
+// Searching functionality
+const searchBtn = document.getElementById("searchBtn");
+searchBtn.addEventListener("click",searchingPhone)
+function searchingPhone () {
+    const searchInput = document.getElementById("searchInput");
+    getPhones(`https://openapi.programming-hero.com/api/phones?search=${searchInput.value ? searchInput.value : `iphone`}`);
+    cardContainer.innerHTML = "";
+    
+}
+searchingPhone()
